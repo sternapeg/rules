@@ -1,29 +1,27 @@
 language: python
-python: "3.6"
+python: '3.6'
 branches:
   only:
   - build
-
 before_install:
-  - git init
-  - git config --global user.name "sternapeg"
-  - git config --global user.email "sternapeg@gmail.com"
-  - git clone --depth=1 git@github.com:sternapeg/rules.git
-
+- openssl aes-256-cbc -K $encrypted_56a176bc559e_key -iv $encrypted_56a176bc559e_iv
+  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+- git init
+- git config --global user.name "sternapeg"
+- git config --global user.email "sternapeg@gmail.com"
+- git clone --depth=1 git@github.com:sternapeg/rules.git
 install:
-  - wget https://raw.githubusercontent.com/AliasIO/Wappalyzer/master/src/apps.json
-  - git clone -b master --depth=1 https://github.com/urbanadventurer/WhatWeb
-  - python tools/wappalyzer.py ./ ./rules/wappalyzer
-  - ruby tools/whatweb.rb ./WhatWeb/plugins/ ./rules/whatweb/
-
+- wget https://raw.githubusercontent.com/AliasIO/Wappalyzer/master/src/apps.json
+- git clone -b master --depth=1 https://github.com/urbanadventurer/WhatWeb
+- python tools/wappalyzer.py ./ ./rules/wappalyzer
+- ruby tools/whatweb.rb ./WhatWeb/plugins/ ./rules/whatweb/
 before_script:
-  - cd rules
-
+- cd rules
 script:
-  - pwd
-  - git add .
-  - git commit -m "Auto Update Rules" && date "+%Y.%m.%d" > VERSION || true
-  - git add VERSION
-  - git commit -m "Update version" || true
-  - git push -u origin master || true
-  - echo "done"
+- pwd
+- git add .
+- git commit -m "Auto Update Rules" && date "+%Y.%m.%d" > VERSION || true
+- git add VERSION
+- git commit -m "Update version" || true
+- git push -u origin master || true
+- echo "done"
