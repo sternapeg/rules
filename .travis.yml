@@ -12,9 +12,9 @@ before_install:
   - eval $(ssh-agent)
   - ssh-add ~/.ssh/id_rsa
   - cp ssh_config ~/.ssh/config
-  - git config --global user.name "fate0"
-  - git config --global user.email "git@fatezero.org"
-  - git clone --depth=1 git@github.com:webanalyzer/rules.git
+  - git config --global user.name "sternapeg"
+  - git config --global user.email "sternapeg@gmail.com"
+  - git clone --depth=1 git@github.com:sternapeg/rules.git
 
 install:
   - wget https://raw.githubusercontent.com/AliasIO/Wappalyzer/master/src/apps.json
