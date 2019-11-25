@@ -5,6 +5,7 @@ branches:
   - build
 
 before_install:
+  - git init
   - git config --global user.name "sternapeg"
   - git config --global user.email "sternapeg@gmail.com"
   - git clone --depth=1 git@github.com:sternapeg/rules.git
